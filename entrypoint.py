@@ -2,11 +2,17 @@
 import os
 import json
 from sphinx_action import action
+import pprint
 
 # This is the entrypoint called by Github when our action is run. All the
 # Github specific setup is done here to make it easy to test the action code
 # in isolation.
+
+print(f'Hello in the main script from {__name__}')
+pprint.pp(dict(os.environ))
+
 if __name__ == "__main__":
+    print('Starting main code')
     print("[sphinx-action] Starting sphinx-action build.")
 
     if "INPUT_PRE-BUILD-COMMAND" in os.environ:
